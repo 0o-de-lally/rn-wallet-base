@@ -9,7 +9,8 @@
     "start": "react-native start",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx}\"",
-    "prebuild": "react-native bundle --entry-file src/App.tsx --assets-dest dist/ --bundle-output dist/index.js --dev false"
+    "prebuild": "react-native bundle --entry-file src/App.tsx --assets-dest dist/ --bundle-output dist/index.js --dev false",
+    "e2e": "bun tests/maestroHarness.ts"
   },
   "dependencies": {
     "eslint-plugin-react": "^7.37.5",
