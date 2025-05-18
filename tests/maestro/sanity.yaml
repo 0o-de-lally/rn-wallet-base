@@ -2,5 +2,5 @@ appId: com.rn_wallet_base
 ---
 - launchApp
 - extendedWaitUntil:
-    visible: Welcome to
+    visible: "HIYA"
     timeout: 300000

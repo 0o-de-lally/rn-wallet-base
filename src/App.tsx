@@ -81,9 +81,7 @@ function App(): React.JSX.Element {
             paddingHorizontal: safePadding,
             paddingBottom: safePadding,
           }}>
-          <Section title="Step One">
-            HIYA
-          </Section>
+          <Section title="Step One">HIYA</Section>
           <Section title="See Your Changes">
             <ReloadInstructions />
           </Section>
@@ -111,9 +109,6 @@ const styles = StyleSheet.create({
     marginTop: 8,
     fontSize: 18,
     fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
   },
 });
 
