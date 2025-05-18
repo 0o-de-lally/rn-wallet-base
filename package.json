@@ -8,7 +8,8 @@
     "lint": "eslint .",
     "start": "react-native start",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
-    "format:check": "prettier --check \"**/*.{ts,tsx}\""
+    "format:check": "prettier --check \"**/*.{ts,tsx}\"",
+    "prebuild": "react-native bundle --entry-file App.tsx --assets-dest dist/--bundle-output dist/index.js --dev false"
   },
   "dependencies": {
     "eslint-plugin-react": "^7.37.5",
@@ -28,8 +29,5 @@
     "eslint": "^9.27.0",
     "prettier": "^3.5.3",
     "typescript": "5.0.4"
-  },
-  "engines": {
-    "node": ">=18"
   }
 }
