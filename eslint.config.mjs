@@ -10,7 +10,6 @@ export default tseslint.config(
       'react': reactPlugin,
       'react-hooks': reactHooksPlugin,
       'react-native': reactNativePlugin,
-      // 'import': importPlugin,
     },
     languageOptions: {
       parserOptions: {
@@ -48,31 +47,10 @@ export default tseslint.config(
       'react-native/no-unused-styles': 'error',
       'react-native/no-inline-styles': 'warn',
       'react-native/no-color-literals': 'warn',
-      // 'react-native/no-raw-text': ['error', { skip: ['Text.Text'] }],
-
-      // // Import rules
-      // 'import/order': [
-      //   'error',
-      //   {
-      //     groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
-      //     'newlines-between': 'always',
-      //     alphabetize: { order: 'asc', caseInsensitive: true },
-      //   },
-      // ],
-      // 'import/no-duplicates': 'error',
 
       // General rules
       'no-console': ['warn', { allow: ['warn', 'error'] }],
 
-      // // Style rules (instead of Prettier)
-      // 'semi': ['error', 'always'],
-      // 'quotes': ['error', 'single', { 'avoidEscape': true }],
-      // 'indent': ['error', 2, { 'SwitchCase': 1 }],
-      // 'comma-dangle': ['error', 'always-multiline'],
-      // 'object-curly-spacing': ['error', 'always'],
-      // 'array-bracket-spacing': ['error', 'never'],
-      // 'arrow-parens': ['error', 'as-needed'],
-      // 'max-len': ['error', { 'code': 100 }],
     },
     ignores: ['node_modules/', 'dist/', 'build/', 'coverage/', '*.log', '*.config.js'],
   }
