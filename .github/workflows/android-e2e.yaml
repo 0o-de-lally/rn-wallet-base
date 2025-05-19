@@ -55,4 +55,4 @@ jobs:
       #     script: echo "setup complete"
 
       - name: run tests
-        run: maestro start-device --platform android
+        run: yes | maestro start-device --platform android
