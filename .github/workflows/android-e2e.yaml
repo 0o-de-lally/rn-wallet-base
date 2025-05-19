@@ -13,16 +13,16 @@ jobs:
   debug-maestro:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        api-level: [29] # [21, 23, 29]
+    # strategy:
+    #   matrix:
+    #     api-level: [29] # [21, 23, 29]
     steps:
 
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
-        with:
-          detached: true
-        timeout-minutes: 15
+      # - name: Setup tmate session
+      #   uses: mxschmitt/action-tmate@v3
+      #   with:
+      #     detached: true
+      #   timeout-minutes: 15
 
 #       - name: Enable KVM
 #         run: |
@@ -30,13 +30,12 @@ jobs:
 #           sudo udevadm control --reload-rules
 #           sudo udevadm trigger --name-match=kvm
 
-#       - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-# # Actual test
-#       - uses: oven-sh/setup-bun@v2
+      - uses: oven-sh/setup-bun@v2
 
-#       - name: bun install
-#         run: bun install
+      - name: bun install
+        run: bun install
 
       - name: install maestro
         uses: dniHze/maestro-test-action@v1
