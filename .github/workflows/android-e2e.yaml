@@ -13,9 +13,9 @@ jobs:
   debug-maestro:
     runs-on: ubuntu-latest
 
-    # strategy:
-    #   matrix:
-    #     api-level: [29] # [21, 23, 29]
+    strategy:
+      matrix:
+        api-level: [29] # [21, 23, 29]
     steps:
 
       # - name: Setup tmate session
@@ -24,11 +24,11 @@ jobs:
       #     detached: true
       #   timeout-minutes: 15
 
-#       - name: Enable KVM
-#         run: |
-#           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
-#           sudo udevadm control --reload-rules
-#           sudo udevadm trigger --name-match=kvm
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
 
       - uses: actions/checkout@v4
 
@@ -40,17 +40,17 @@ jobs:
       - name: install maestro
         uses: dniHze/maestro-test-action@v1
 
-      # - name: Add Android SDK emulator to PATH
-      #   run: echo "/usr/local/lib/android/sdk/emulator/" >> $GITHUB_PATH
+      - name: Add Android SDK emulator to PATH
+        run: echo "/usr/local/lib/android/sdk/emulator/" >> $GITHUB_PATH
 
-      # - name: setup android tools
-      #   uses: reactivecircus/android-emulator-runner@v2
-      #   with:
-      #     api-level: ${{ matrix.api-level }}
-      #     force-avd-creation: true
-      #     emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
-      #     disable-animations: true
-      #     script: echo "setup complete"
+      - name: setup android tools
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: ${{ matrix.api-level }}
+          force-avd-creation: true
+          emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          disable-animations: true
+          script: echo "setup complete"
 
       - name: install emulator
         run: |
