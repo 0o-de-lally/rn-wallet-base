@@ -17,21 +17,36 @@ function killAll() {
 //   process.exit(1);
 // });
 // process.on("exit", killAll);
-
-function spawnEmulator() {
-  const isCI = process.env.CI === 'true';
-  const args = ['-avd', '$(emulator -list-avds | head -n 1)'];
-
-  if (isCI) {
-    args.push('-no-window');
+function maestroMagic() {
+  const args = ['start-device', '--platform=android'];
+  const result = spawnSync('maestro', args);
+  if (result.error) {
+    console.error('Error starting Maestro device:', result.error);
+    process.exit(1);
+  } else {
+    console.log('Maestro device started successfully');
   }
-
-  emulatorProc = spawn('emulator', args, {
-    shell: true,
-    stdio: 'inherit',
-    detached: true,
-  });
+  // emulatorProc = spawn('maestro', args, {
+  //   shell: true,
+  //   stdio: 'inherit',
+  //   detached: true,
+  // });
 }
+
+// function spawnEmulator() {
+//   const isCI = process.env.CI === 'true';
+//   const args = ['-avd', '$(emulator -list-avds | head -n 1)'];
+
+//   if (isCI) {
+//     args.push('-no-window');
+//   }
+
+//   emulatorProc = spawn('emulator', args, {
+//     shell: true,
+//     stdio: 'inherit',
+//     detached: true,
+//   });
+// }
 
 async function waitForDeviceBoot() {
   // Wait until device is recognized
@@ -144,8 +159,10 @@ async function main() {
     process.exit(1);
   });
 
-  spawnEmulator();
-  await waitForDeviceBoot();
+  // spawnEmulator();
+
+  // await waitForDeviceBoot();
+  maestroMagic();
 
   try {
     await buildAndroid();

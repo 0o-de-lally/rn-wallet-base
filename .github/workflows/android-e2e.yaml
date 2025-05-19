@@ -1,4 +1,3 @@
-
 name: Debug Maestro
 on:
   push:
@@ -54,8 +53,9 @@ jobs:
       #     disable-animations: true
       #     script: echo "setup complete"
 
-      - name: run tests
+      - name: install emulator
         run: |
-          yes | maestro start-device --platform android
-          # do it again because somehow it fails to continue
-          maestro start-device --platform android
+          yes | maestro start-device --platform android || true
+
+      - name: run maestro test
+        run: bun e2e
