@@ -26,6 +26,10 @@ function maestroMagic() {
   } else {
     console.log('Maestro device started successfully');
   }
+
+  const result2 = spawnSync('emulator', ['-list-avds']);
+  console.log('res:', result2.stdout.toString());
+
   // emulatorProc = spawn('maestro', args, {
   //   shell: true,
   //   stdio: 'inherit',
