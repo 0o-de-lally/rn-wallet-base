@@ -1,4 +1,17 @@
 {
   "name": "rn_wallet_base",
-  "displayName": "RnWallet"
+  "displayName": "RnWallet",
+  "android": {
+    "package": "com.x0odelally.rn_wallet_base"
+  },
+  "ios": {
+    "bundleIdentifier": "com.x0odelally.rn-wallet-base"
+  },
+  "extra": {
+    "eas": {
+      "projectId": "ebbe6a77-a128-4291-97af-f3bb2be347d8"
+    }
+  },
+  "owner": "0o-de-lally",
+  "slug": "rn-wallet-base"
 }
