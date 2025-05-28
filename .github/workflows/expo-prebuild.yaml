@@ -24,4 +24,4 @@ jobs:
         run: bun install
 
       - name: Run build
-        run: bunx eas prebuild --platform android --profile production
+        run: bun expo prebuild --platform android --profile production
