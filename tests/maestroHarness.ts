@@ -90,6 +90,7 @@ async function buildAndroid() {
 
     // Handle pipe errors
     androidProc.stdin?.on('error', err => {
+      // TODO:
       if (err.code === 'EPIPE') {
         console.warn('Android build stdin pipe was broken, this is usually not critical');
       } else {
