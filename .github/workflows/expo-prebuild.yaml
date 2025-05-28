@@ -23,4 +23,4 @@ jobs:
       - name: Install dependencies
         run: bun install
       - name: Run build
-        run: bun expo prebuild --platform android
+        run: bun expo prebuild --platform android --skip-dependency-update --no-install --clean
