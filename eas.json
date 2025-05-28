@@ -1,0 +1,9 @@
+{
+  "build": {
+    "development": {
+      "android": {
+        "simulator": true
+      }
+    }
+  }
+}
